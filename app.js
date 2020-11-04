@@ -29,6 +29,7 @@ class UI {
     }
 
     static gridOn() {
+        document.querySelector("#message").classList.add("active");
         const container = document.querySelector(".bookshelf");
         container.classList.add("active");
     }

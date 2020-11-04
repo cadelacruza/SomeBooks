@@ -108,3 +108,7 @@ main .bookshelf{
     height: 100%;
     border-radius: 5px;
 }
+
+#message.active{
+    display: none;
+}
