@@ -112,3 +112,7 @@ main .bookshelf{
 #message.active{
     display: none;
 }
+
+.alert{
+    border: 3px solid black;
+}

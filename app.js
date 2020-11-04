@@ -10,6 +10,7 @@ class Book {
 
 class UI {
     static counter = 0;
+
     static addBook(book) {
         if (UI.counter === 0) {
             UI.gridOn();
@@ -33,6 +34,15 @@ class UI {
         const container = document.querySelector(".bookshelf");
         container.classList.add("active");
     }
+
+    static showAlert(message, color) {
+        const div = document.createElement("div");
+        div.classList.add(`${color}`, `alert`);
+        div.innerText = message;
+        const container = document.querySelector(".top");
+        const main = document.querySelector("form");
+        container.insertBefore(div, main);
+    }
 }
 
 document.querySelector("button").addEventListener("click", (e) => {
@@ -40,6 +50,10 @@ document.querySelector("button").addEventListener("click", (e) => {
     const titulo = document.querySelector("#titulo").value;
     const autor = document.querySelector("#autor").value;
     const isbn = document.querySelector("#ISBN").value;
+
+    if (titulo === "" || autor === "" || isbn === "") {
+        UI.showAlert("Please, fill out all the fields", "#EC657D");
+    }
 
     const libro = new Book(titulo, autor, isbn);
     UI.addBook(libro);
