@@ -83,6 +83,13 @@ main .bookshelf{
     background-color: white;
     border-radius: 10px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.bookshelf.active{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
