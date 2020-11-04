@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="img/jpg" href="logo.png">
+    <title>SomeBooks</title>
+</head>
+
+<body>
+    <section class="top">
+        <div class="title">
+            <img src="logo.png" alt="Book logo">
+            <h1>Some<span id="books">Books</span></h1>
+        </div>
+
+        <form action="">
+            <section class="input">
+                <label for="titulo">Title</label><br>
+                <input type="text" id="titulo"><br>
+            </section>
+
+            <section class="input">
+                <label for="auto">Author</label><br>
+                <input type="text" id="autor"><br>
+            </section>
+
+            <section class="input">
+                <label for="ISBN">ISBN #</label><br>
+                <input type="number" id="ISBN">
+            </section>
+
+            <section class="btn-wrapper input">
+                <button>Add Book</button>
+            </section>
+
+        </form>
+    </section>
+
+    <main class="bookshelf-wrapper">
+        <div class="bookshelf">
+            <p>Your books will appear here, add one!</p>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+
+</html>
