@@ -14,6 +14,7 @@ class UI {
         if (UI.counter === 0) {
             UI.gridOn();
         }
+        UI.counter++;
         const container = document.querySelector(".bookshelf");
 
         const section = document.createElement("section");
@@ -28,7 +29,6 @@ class UI {
     }
 
     static gridOn() {
-        UI.counter++;
         const container = document.querySelector(".bookshelf");
         container.classList.add("active");
     }
