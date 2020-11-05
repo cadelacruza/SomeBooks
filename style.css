@@ -63,6 +63,12 @@ body{
     height: 30px;
     background-color: #1f113a;
     color: white;
+    padding: 10px;
+}
+
+.input input::placeholder{
+    color: white;
+
 }
 
 .btn-wrapper{
