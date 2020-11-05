@@ -6,11 +6,16 @@
     box-sizing: border-box;
 }
 
-/*Turnoff inut number spinner*/
+/*Turnoff inut number spinner Chrome*/
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
   margin: 0; 
+}
+
+/*Turnoff inut number spinner Mozilla*/
+input[type=number] {
+    -moz-appearance:textfield;
 }
 
 body{
