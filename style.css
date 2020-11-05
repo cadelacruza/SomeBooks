@@ -6,8 +6,15 @@
     box-sizing: border-box;
 }
 
+/*Turnoff inut number spinner*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
 body{
-    background-color: #ebebeb;
+    background-color:#251c45;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -15,6 +22,7 @@ body{
     display: flex;
     align-items:  center;
     margin: 20px;
+    color: white;
 }
 
 .top {
@@ -47,7 +55,9 @@ body{
 .input input{
     border: none;
     border-radius: 8px;
-    height: 20px;
+    height: 30px;
+    background-color: #1f113a;
+    color: white;
 }
 
 .btn-wrapper{
@@ -59,8 +69,8 @@ body{
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
-    background-color: #e9f0fe;
-    color: #484861;
+    background-color: #6600ff;
+    color: white;
     font-weight: bolder;
 }
 
@@ -127,4 +137,9 @@ main .bookshelf{
 
 .alert.green{
     background-color: #8af876;
+}
+
+
+label{
+    color: white;
 }
