@@ -114,5 +114,17 @@ main .bookshelf{
 }
 
 .alert{
-    border: 3px solid black;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    margin: 5px 0;
+    padding: 10px 15px 10px 15px;
+}
+
+.alert.red{
+    background-color: #EC657D;
+}
+
+.alert.green{
+    background-color: #8af876;
 }

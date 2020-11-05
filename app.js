@@ -42,6 +42,8 @@ class UI {
         const container = document.querySelector(".top");
         const main = document.querySelector("form");
         container.insertBefore(div, main);
+
+        setTimeout(() => document.querySelector(".alert").remove(), 2000)
     }
 }
 
@@ -52,9 +54,12 @@ document.querySelector("button").addEventListener("click", (e) => {
     const isbn = document.querySelector("#ISBN").value;
 
     if (titulo === "" || autor === "" || isbn === "") {
-        UI.showAlert("Please, fill out all the fields", "#EC657D");
+        UI.showAlert("Please, fill in all the fields", "red");
+    } else {
+        const libro = new Book(titulo, autor, isbn);
+        UI.addBook(libro);
+        UI.showAlert("Book added", "green")
     }
 
-    const libro = new Book(titulo, autor, isbn);
-    UI.addBook(libro);
+
 })
