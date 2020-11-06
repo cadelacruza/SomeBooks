@@ -110,5 +110,6 @@ document.querySelector(".bookshelf").addEventListener("click", (e) => {
         console.log("sup");
         e.target.parentElement.remove();
         UI.deleteBook();
+        UI.showAlert("Book deleted", "red");
     }
 })
