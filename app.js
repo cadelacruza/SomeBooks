@@ -16,15 +16,20 @@ class UI {
         const parent = document.createElement("article");
         const imagen = document.createElement("img");
 
+
         parent.innerHTML = `
-        <div>&times</div>
-        <h2>${title}</h2>
-        <p>${author}</p>
-        <p>${isbn}</p>
+        <div class="delete">&times</div>
+        <div class="data-wrapper">
+         <h2>${title}</h2>
+         <p>${author}</p>
+         <p>${isbn}</p>
+        <div>
         `;
 
         imagen.src = img;
         parent.appendChild(imagen);
+
+        parent.classList.add("libro");
 
         grandParent.appendChild(parent);
     }
