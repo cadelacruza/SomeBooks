@@ -1,8 +1,9 @@
 class Book {
-    constructor(title, author, isbn) {
+    constructor(title, author, isbn, cover) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
+        this.cover = cover;
     }
 
 }
@@ -107,13 +108,13 @@ class Store {
 
 const key = "AIzaSyApkcksxCxSepWk9ihpBCQD6dj4xoATcAQ";
 //This function will display the book;
-const displayBook = async (title, author, isbn) => {
-    const response = await fetch(`https://books.googleapis.com/books/v1/volumes?q=${title}&maxResults=1&printType=BOOKS&key=${key}`);
+const displayBook = async (libro) => {
+    const response = await fetch(`https://books.googleapis.com/books/v1/volumes?q=${libro.title}&maxResults=1&printType=BOOKS&key=${key}`);
     const data = await response.json();
     console.log(data);
     const img = data.items[0].volumeInfo.imageLinks.thumbnail;
-
-    UI.bookContainer(title, author, isbn, img);
+    libro.cover = img;
+    UI.bookContainer(libro.title, libro.author, libro.isbn, libro.cover);
     UI.showAlert("Book added", "green");
 }
 
@@ -129,7 +130,7 @@ document.querySelector("button").addEventListener("click", (e) => {
         UI.showAlert("Please, fill in all the required fields", "red");
     } else {
         const libro = new Book(titulo, autor, isbn);
-        displayBook(libro.title, libro.author, libro.isbn)
+        displayBook(libro);
         UI.addBook(libro);
     }
 })
