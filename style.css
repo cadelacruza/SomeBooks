@@ -66,10 +66,7 @@ body{
     padding: 10px;
 }
 
-.input input::placeholder{
-    color: white;
 
-}
 
 .btn-wrapper{
     display: flex;
@@ -138,8 +135,8 @@ main .bookshelf{
     border: none;
     border-radius: 25px;
     color: white;
-    margin: 5px 0;
-    padding: 10px 15px 10px 15px;
+    margin: 15px 0 25px 0;
+    padding: 10px 15px;
 }
 
 .alert.red{
