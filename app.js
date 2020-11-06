@@ -74,6 +74,36 @@ class UI {
     }
 }
 
+class Store {
+    static getBooks() {
+        let books;
+        if (localStorage.getItem("books") === null) {
+            return [];
+        } else {
+            books = JSON.parse(localStorage.getItem("books"));
+        }
+
+        return books;
+    }
+
+    static saveBook(book) {
+        const books = Store.getBooks();
+        books.push(book);
+        localStorage.setItem("books", JSON.stringify(books));
+    }
+
+    static removeBook(isbn) {
+        const books = Store.getBooks();
+        books.forEach((book, index) => {
+            if (book.isbn === isbn) {
+                books.splice(index, 1);
+            }
+        });
+
+        localStorage.setItem("books", JSON.stringify(books));
+    }
+}
+
 
 const key = "AIzaSyApkcksxCxSepWk9ihpBCQD6dj4xoATcAQ";
 //This function will display the book;
