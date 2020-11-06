@@ -8,6 +8,9 @@ class Book {
 }
 
 
+
+
+
 class UI {
     static counter = 0;
 
@@ -16,17 +19,15 @@ class UI {
             UI.gridOn();
         }
         UI.counter++;
-        const container = document.querySelector(".bookshelf");
 
-        const section = document.createElement("section");
 
-        section.innerHTML = `
+
+        /* section.innerHTML = `
         <p>${book.title}</p>
         <p>${book.author}</p>
         <p>${book.isbn}</p>
-        `;
+        `; */
 
-        container.appendChild(section);
     }
 
 
@@ -49,14 +50,18 @@ class UI {
     }
 }
 
+
+
+//Click button event
 document.querySelector("button").addEventListener("click", (e) => {
     e.preventDefault();
+
     const titulo = document.querySelector("#titulo").value;
     const autor = document.querySelector("#autor").value;
     const isbn = document.querySelector("#ISBN").value;
 
-    if (titulo === "" || autor === "" || isbn === "") {
-        UI.showAlert("Please, fill in all the fields", "red");
+    if (titulo === "" || autor === "") {
+        UI.showAlert("Please, fill in all the required fields", "red");
     } else {
         const libro = new Book(titulo, autor, isbn);
         UI.addBook(libro);
