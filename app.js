@@ -12,7 +12,7 @@ class Book {
 class UI {
     static counter = 0;
 
-    static bookContainer(title, author, isbn = 12345678, img) {
+    static bookContainer(title, author, isbn, img) {
         const grandParent = document.querySelector(".bookshelf")
         const parent = document.createElement("article");
         const imagen = document.createElement("img");
@@ -76,6 +76,9 @@ class UI {
 }
 
 class Store {
+
+
+
     static getBooks() {
         let books;
         if (localStorage.getItem("books") === null) {
@@ -134,7 +137,7 @@ document.querySelector("button").addEventListener("click", (e) => {
 
         console.log(libro);
         UI.addBook(libro);
-        Store.saveBook(libro);
+        //Store.saveBook(libro);
     }
 })
 
@@ -146,4 +149,6 @@ document.querySelector(".bookshelf").addEventListener("click", (e) => {
         UI.deleteBook();
         UI.showAlert("Book deleted", "red");
     }
-})
+});
+
+document.querySelector(".bookshelf").addEventListener("onChange")
