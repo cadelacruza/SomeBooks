@@ -151,3 +151,7 @@ main .bookshelf{
 label{
     color: white;
 }
+
+.delete{
+    cursor: pointer;
+}

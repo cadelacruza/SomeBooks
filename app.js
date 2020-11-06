@@ -112,6 +112,3 @@ document.querySelector(".bookshelf").addEventListener("click", (e) => {
         UI.deleteBook();
     }
 })
-
-
-console.log(UI.counter);
