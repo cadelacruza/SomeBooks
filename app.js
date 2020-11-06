@@ -8,25 +8,31 @@ class Book {
 }
 
 
-
-
-
 class UI {
     static counter = 0;
 
+    static bookContainer(title, author, isbn = 12345678, img) {
+        const grandParent = document.querySelector(".bookshelf")
+        const parent = document.createElement("article");
+        const imagen = document.createElement("img");
+
+        parent.innerHTML = `
+        <h2>${title}</h2>
+        <p>${author}</p>
+        <p>${isbn}</p>
+        `;
+
+        imagen.src = img;
+        parent.appendChild(imagen);
+
+        grandParent.appendChild(parent);
+    }
     static addBook(book) {
         if (UI.counter === 0) {
             UI.gridOn();
         }
         UI.counter++;
 
-
-
-        /* section.innerHTML = `
-        <p>${book.title}</p>
-        <p>${book.author}</p>
-        <p>${book.isbn}</p>
-        `; */
 
     }
 
@@ -51,11 +57,21 @@ class UI {
 }
 
 
+const key = "AIzaSyApkcksxCxSepWk9ihpBCQD6dj4xoATcAQ";
+
+const getImage = async (title, author) => {
+    const response = await fetch(`https://books.googleapis.com/books/v1/volumes?q=${title}&maxResults=1&printType=BOOKS&key=${key}`);
+    const data = await response.json();
+    console.log(data);
+    const img = data.items[0].volumeInfo.imageLinks.thumbnail;
+
+    UI.bookContainer(title, author, 12345, img);
+}
+
 
 //Click button event
 document.querySelector("button").addEventListener("click", (e) => {
     e.preventDefault();
-
     const titulo = document.querySelector("#titulo").value;
     const autor = document.querySelector("#autor").value;
     const isbn = document.querySelector("#ISBN").value;
@@ -64,6 +80,7 @@ document.querySelector("button").addEventListener("click", (e) => {
         UI.showAlert("Please, fill in all the required fields", "red");
     } else {
         const libro = new Book(titulo, autor, isbn);
+        getImage(libro.title, libro.author);
         UI.addBook(libro);
         UI.showAlert("Book added", "green")
     }
