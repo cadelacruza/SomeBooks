@@ -17,6 +17,7 @@ class UI {
         const imagen = document.createElement("img");
 
         parent.innerHTML = `
+        <div>&times</div>
         <h2>${title}</h2>
         <p>${author}</p>
         <p>${isbn}</p>
@@ -27,13 +28,19 @@ class UI {
 
         grandParent.appendChild(parent);
     }
+
     static addBook(book) {
         if (UI.counter === 0) {
             UI.gridOn();
         }
         UI.counter++;
+    }
 
-
+    static deleteBook() {
+        if (UI.counter === 0) {
+            UI.gridOff();
+        }
+        UI.counter--;
     }
 
 
@@ -42,6 +49,12 @@ class UI {
         document.querySelector("#message").classList.add("active");
         const container = document.querySelector(".bookshelf");
         container.classList.add("active");
+    }
+
+    static gridOff() {
+        const container = document.querySelector(".bookshelf");
+        container.classList.remove("active");
+        document.querySelector("#message").classList.remove("active");
     }
 
     static showAlert(message, color) {
@@ -58,14 +71,14 @@ class UI {
 
 
 const key = "AIzaSyApkcksxCxSepWk9ihpBCQD6dj4xoATcAQ";
-
-const getImage = async (title, author) => {
+//This function will display the book;
+const displayBook = async (title, author, isbn) => {
     const response = await fetch(`https://books.googleapis.com/books/v1/volumes?q=${title}&maxResults=1&printType=BOOKS&key=${key}`);
     const data = await response.json();
     console.log(data);
     const img = data.items[0].volumeInfo.imageLinks.thumbnail;
 
-    UI.bookContainer(title, author, 12345, img);
+    UI.bookContainer(title, author, isbn, img);
 }
 
 
@@ -80,7 +93,7 @@ document.querySelector("button").addEventListener("click", (e) => {
         UI.showAlert("Please, fill in all the required fields", "red");
     } else {
         const libro = new Book(titulo, autor, isbn);
-        getImage(libro.title, libro.author);
+        displayBook(libro.title, libro.author, libro.isbn);
         UI.addBook(libro);
         UI.showAlert("Book added", "green")
     }
