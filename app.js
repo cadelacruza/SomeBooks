@@ -42,10 +42,10 @@ class UI {
     }
 
     static deleteBook() {
+        UI.counter--;
         if (UI.counter === 0) {
             UI.gridOff();
         }
-        UI.counter--;
     }
 
 
@@ -84,6 +84,7 @@ const displayBook = async (title, author, isbn) => {
     const img = data.items[0].volumeInfo.imageLinks.thumbnail;
 
     UI.bookContainer(title, author, isbn, img);
+    UI.showAlert("Book added", "green");
 }
 
 
@@ -98,10 +99,19 @@ document.querySelector("button").addEventListener("click", (e) => {
         UI.showAlert("Please, fill in all the required fields", "red");
     } else {
         const libro = new Book(titulo, autor, isbn);
-        displayBook(libro.title, libro.author, libro.isbn);
+        displayBook(libro.title, libro.author, libro.isbn)
         UI.addBook(libro);
-        UI.showAlert("Book added", "green")
     }
-
-
 })
+
+
+document.querySelector(".bookshelf").addEventListener("click", (e) => {
+    if (e.target.classList.contains("delete")) {
+        console.log("sup");
+        e.target.parentElement.remove();
+        UI.deleteBook();
+    }
+})
+
+
+console.log(UI.counter);
