@@ -113,8 +113,8 @@ const displayBook = async (libro) => {
     const data = await response.json();
     console.log(data);
     const img = data.items[0].volumeInfo.imageLinks.thumbnail;
-    libro.cover = img;
-    UI.bookContainer(libro.title, libro.author, libro.isbn, libro.cover);
+    const isbn = data.items[0].volumeInfo.industryIdentifiers[0].identifier;
+    UI.bookContainer(libro.title, libro.author, libro.isbn === "" ? isbn : libro.isbn, img);
     UI.showAlert("Book added", "green");
 }
 
@@ -131,7 +131,10 @@ document.querySelector("button").addEventListener("click", (e) => {
     } else {
         const libro = new Book(titulo, autor, isbn);
         displayBook(libro);
+
+        console.log(libro);
         UI.addBook(libro);
+        Store.saveBook(libro);
     }
 })
 
