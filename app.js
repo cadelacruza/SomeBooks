@@ -12,6 +12,10 @@ class Book {
 class UI {
     static counter = 0;
 
+    static displaySavedBooks() {
+        const books = Store.getBooks();
+        books.forEach(book => UI.bookContainer(book.title, book.author, book.isbn, book.cover));
+    }
     static bookContainer(title, author, isbn, img) {
         const grandParent = document.querySelector(".bookshelf")
         const parent = document.createElement("article");
@@ -154,6 +158,14 @@ document.querySelector(".bookshelf").addEventListener("click", (e) => {
         Store.removeBook(e.target.dataset.isbn);
         UI.showAlert("Book deleted", "red");
     }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const numOfBooks = Store.getBooks().length;
+    if (numOfBooks > 0) {
+        UI.gridOn();
+    }
+    UI.displaySavedBooks();
 });
 
 
