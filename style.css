@@ -19,7 +19,7 @@ input[type=number] {
 }
 
 body{
-    background-color:#251c45;
+    background-color:#141936;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -61,7 +61,7 @@ body{
     border: none;
     border-radius: 8px;
     height: 30px;
-    background-color: #1f113a;
+    background-color: #1B2342;
     color: white;
     padding: 10px;
 }
@@ -77,7 +77,7 @@ body{
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
-    background-color: #6600ff;
+    background-color: #3A57FC;
     color: white;
     font-weight: bolder;
 }
@@ -158,6 +158,11 @@ label{
 
 
 .libro{
-    background-color: white;
+    background-color: #1B2342;
+    border-radius: 10px;
+}
+
+.libro img{
+    opacity: 1;
     border-radius: 10px;
 }
