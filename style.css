@@ -98,7 +98,7 @@ main .bookshelf{
     width: 1200px;
     min-height: 400px;
     height: fit-content;
-    background-color: white;
+
     border-radius: 10px;
 
     display: flex;
@@ -154,4 +154,10 @@ label{
 
 .delete{
     cursor: pointer;
+}
+
+
+.libro{
+    background-color: white;
+    border-radius: 10px;
 }

@@ -21,9 +21,12 @@ class UI {
         const parent = document.createElement("article");
         const imagen = document.createElement("img");
 
+        // imagen.src = img;
+        // parent.appendChild(imagen);
 
         parent.innerHTML = `
         <div class="delete" data-isbn=${isbn}>&times</div>
+        <img src=${img} alt="Book cover">
         <div class="data-wrapper">
          <h2>${title}</h2>
          <p>${author}</p>
@@ -31,8 +34,7 @@ class UI {
         <div>
         `;
 
-        imagen.src = img;
-        parent.appendChild(imagen);
+
 
         parent.classList.add("libro");
 
