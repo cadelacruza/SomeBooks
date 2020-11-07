@@ -162,6 +162,7 @@ document.querySelector(".bookshelf").addEventListener("click", (e) => {
 
 document.addEventListener('DOMContentLoaded', function () {
     const numOfBooks = Store.getBooks().length;
+    UI.counter = numOfBooks;
     if (numOfBooks > 0) {
         UI.gridOn();
     }
