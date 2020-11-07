@@ -164,24 +164,29 @@ label{
     width: 220px;
     height: 220px;
 
-    transition: 0.5s;
 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.libro:hover{
-    background-color: #1b2342;
-}
 
-.libro:hover img{
-    display: none;
-}
+
+
+/* .libro:hover{
+    background-color: #1b2342;
+} */
+
+
 
 .libro img{
     opacity: 1;
     border-radius: 10px;
+    transition: 1.5s;
+}
+
+.libro:hover img{
+    opacity: 0.4;
 }
 
 .libro p, h2{
