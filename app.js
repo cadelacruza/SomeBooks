@@ -79,6 +79,12 @@ class UI {
 
         setTimeout(() => document.querySelector(".alert").remove(), 2000)
     }
+
+    static clearFields() {
+        document.querySelector("#titulo").value = "";
+        document.querySelector("#autor").value = "";
+        document.querySelector("#ISBN").value = "";
+    }
 }
 
 class Store {
@@ -143,11 +149,12 @@ document.querySelector("button").addEventListener("click", (e) => {
     } else {
         const libro = new Book(titulo, autor, isbn);
         displayBook(libro);
-
         console.log(libro);
         UI.addBook(libro);
         //Store.saveBook(libro);
     }
+
+    UI.clearFields();
 })
 
 
