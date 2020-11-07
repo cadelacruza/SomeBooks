@@ -19,7 +19,7 @@ class UI {
 
 
         parent.innerHTML = `
-        <div class="delete">&times</div>
+        <div class="delete" data-isbn=${isbn}>&times</div>
         <div class="data-wrapper">
          <h2>${title}</h2>
          <p>${author}</p>
@@ -119,6 +119,9 @@ const displayBook = async (libro) => {
     const isbn = data.items[0].volumeInfo.industryIdentifiers[0].identifier;
     UI.bookContainer(libro.title, libro.author, libro.isbn === "" ? isbn : libro.isbn, img);
     UI.showAlert("Book added", "green");
+    libro.cover = img;
+    libro.isbn = libro.isbn === "" ? isbn : libro.isbn;
+    Store.saveBook(libro);
 }
 
 
@@ -147,8 +150,10 @@ document.querySelector(".bookshelf").addEventListener("click", (e) => {
         console.log("sup");
         e.target.parentElement.remove();
         UI.deleteBook();
+        //console.log(e.target.dataset.isbn);
+        Store.removeBook(e.target.dataset.isbn);
         UI.showAlert("Book deleted", "red");
     }
 });
 
-document.querySelector(".bookshelf").addEventListener("onChange")
+
