@@ -66,8 +66,6 @@ body{
     padding: 10px;
 }
 
-
-
 .btn-wrapper{
     display: flex;
     justify-content: center;
@@ -151,7 +149,6 @@ main .bookshelf{
     background-color: #5edb48;
 }
 
-
 label{
     color: white;
 }
@@ -180,9 +177,10 @@ label{
 }
 
 
-.libro:hover{
-    background-color:  rgb(27, 35, 66);;
-}
+/* .libro:hover{
+    background: url("no");
+    /* background:  rgb(27, 35, 66) !important; */
+
 
 .libro p, h2{
     color: white;
@@ -221,4 +219,8 @@ label{
 
 .icon:hover{
     filter: brightness(110%);
+}
+
+.data-wrapper{
+    display: none;
 }

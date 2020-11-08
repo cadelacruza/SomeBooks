@@ -24,9 +24,6 @@ class UI {
         const parent = document.createElement("article");
         const imagen = document.createElement("img");
 
-        // imagen.src = img;
-        // parent.appendChild(imagen);
-
         parent.innerHTML = `
         <div class="iconos">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon quest" id="moreInfo" fill="none" viewBox="0 0 24 24"
@@ -54,10 +51,12 @@ class UI {
         <div>
         `;
 
-        //parent.style.backgroundImage = `url(${img})`;
+        parent.style.backgroundImage = `url(${img})`;
 
         parent.classList.add("libro");
         parent.classList.add("quest");
+        parent.classList.add("containerB");
+        parent.dataset.imgSrc = img;
         grandParent.appendChild(parent);
         UI.updateRemover();
     }
@@ -107,9 +106,14 @@ class UI {
 
     static displayOptions(e) {
         if (e.target.classList.contains("quest")) {
-            console.log(e.target.children[0]);
-            e.target.children[0].classList.add("active");
-            console.log("Moved on icons element, active on");
+            if (e.target.classList.contains("containerB")) {
+                e.target.removeAttribute("style");
+            }
+            if (e.target.classList.contains)
+                //     console.log(e.target.style.backgroundImage)
+                // console.log(e.target.children[0]);
+                e.target.children[0].classList.add("active");
+            //console.log("Moved on icons element, active on");
         }
     }
 
@@ -118,7 +122,9 @@ class UI {
     }
 
     static hideOptions(e) {
+        console.log(e.target)
         e.target.children[0].classList.remove("active");
+        e.target.style.backgroundImage = `url(${e.target.dataset.imgSrc})`;
     }
 }
 
@@ -157,7 +163,7 @@ const key = "AIzaSyApkcksxCxSepWk9ihpBCQD6dj4xoATcAQ";
 const displayBook = async (libro) => {
     const response = await fetch(`https://books.googleapis.com/books/v1/volumes?q=${libro.title}&maxResults=1&printType=BOOKS&key=${key}`);
     const data = await response.json();
-    console.log(data);
+    //console.log(data);
     const img = data.items[0].volumeInfo.imageLinks.thumbnail;
     const isbn = data.items[0].volumeInfo.industryIdentifiers[0].identifier;
     UI.bookContainer(libro.title, libro.author, libro.isbn === "" ? isbn : libro.isbn, img);
