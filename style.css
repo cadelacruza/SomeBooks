@@ -127,6 +127,10 @@ main .bookshelf{
     border-radius: 5px;
 }
 
+#message{
+    color: white;
+}
+
 #message.active{
     display: none;
 }
@@ -159,7 +163,9 @@ label{
 
 
 .libro{
-    background-color: #1B2342;
+    background-repeat:no-repeat;
+    background-position: center;
+    background-color: rgb(27, 35, 66);
     border-radius: 10px;
     width: 220px;
     height: 220px;
@@ -168,25 +174,14 @@ label{
     display: flex;
     justify-content: center;
     align-items: center;
-}
 
-
-
-
-/* .libro:hover{
-    background-color: #1b2342;
-} */
-
-
-
-.libro img{
-    opacity: 1;
     border-radius: 10px;
-    transition: 1.5s;
+    transition: 1s;
 }
 
-.libro:hover img{
-    opacity: 0.4;
+
+.libro:hover{
+    opacity: 0.5;
 }
 
 .libro p, h2{
@@ -199,4 +194,45 @@ label{
     padding: 5px;
     border-radius: 5px;
     background-color: #141936;
+}
+
+
+
+
+/* ------- */
+
+.moreInfo{
+    color: white;
+}
+
+.iconos{
+    height: 170px;
+    display: none;
+}
+
+.iconos.active{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bookOptions.active{
+    position: relative;
+}
+
+.iconos svg{
+    width: 50px;
+    background-color: violet;
+    border-radius: 50%;
+    padding: 1.5px;
+}
+
+.iconos #editInfo{
+    margin: 15px 0;
+}
+
+.bookOptions{
+    width: fit-content;
+    height: fit-content;
 }
