@@ -26,19 +26,19 @@ class UI {
 
         parent.innerHTML = `
         <div class="iconos">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon quest" id="moreInfo" fill="none" viewBox="0 0 24 24"
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon quest " id="moreInfo" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
 
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon quest" id="editInfo" fill="none" viewBox="0 0 24 24"
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon quest " id="editInfo" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round"  stroke-linejoin="round" stroke-width="2"
                         d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                 </svg>
 
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon quest" id="deleteBook" fill="none" viewBox="0 0 24 24"
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon quest " id="deleteBook" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round"  stroke-linejoin="round" stroke-width="2"
                         d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -66,6 +66,13 @@ class UI {
             UI.gridOn();
         }
         UI.counter++;
+    }
+
+    static eliminateBook(e) {
+        if (e.target.id === "deleteBook") {
+            console.log(e.target.parentNode.parentNode);
+            e.target.parentNode.parentNode.remove();
+        }
     }
 
     static deleteBook() {
@@ -193,16 +200,21 @@ document.querySelector("button").addEventListener("click", (e) => {
     UI.clearFields();
 });
 
-document.querySelector(".bookshelf").addEventListener("click", (e) => {
-    if (e.target.classList.contains("delete")) {
-        console.log("sup");
-        e.target.parentElement.remove();
-        UI.deleteBook();
-        //console.log(e.target.dataset.isbn);
-        Store.removeBook(e.target.dataset.isbn);
-        UI.showAlert("Book deleted", "red");
-    }
+
+document.querySelector(".bookshelf-wrapper").addEventListener("click", (e) => {
+    UI.eliminateBook(e);
 });
+
+// document.querySelector(".bookshelf").addEventListener("click", (e) => {
+//     if (e.target.classList.contains("delete")) {
+//         console.log("sup");
+//         e.target.parentElement.remove();
+//         UI.deleteBook();
+//         //console.log(e.target.dataset.isbn);
+//         Store.removeBook(e.target.dataset.isbn);
+//         UI.showAlert("Book deleted", "red");
+//     }
+// });
 
 document.addEventListener('DOMContentLoaded', function () {
     const numOfBooks = Store.getBooks().length;
