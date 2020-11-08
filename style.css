@@ -181,7 +181,7 @@ label{
 
 
 .libro:hover{
-    opacity: 0.5;
+    background-color:  rgb(27, 35, 66);;
 }
 
 .libro p, h2{
@@ -196,15 +196,6 @@ label{
     background-color: #141936;
 }
 
-
-
-
-/* ------- */
-
-.moreInfo{
-    color: white;
-}
-
 .iconos{
     height: 170px;
     display: none;
@@ -215,10 +206,6 @@ label{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.bookOptions.active{
-    position: relative;
 }
 
 .iconos svg{
@@ -232,7 +219,6 @@ label{
     margin: 15px 0;
 }
 
-.bookOptions{
-    width: fit-content;
-    height: fit-content;
+.icon:hover{
+    filter: brightness(110%);
 }
