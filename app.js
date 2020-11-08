@@ -107,6 +107,12 @@ class UI {
             e.target.children[0].classList.add("active");
         }
     }
+
+    static hideOptions(e) {
+        if (e.target.classList.contains("libro")) {
+            e.target.children[0].classList.remove("active");
+        }
+    }
 }
 
 class Store {
@@ -198,6 +204,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.querySelector(".bookshelf-wrapper").addEventListener("mouseover", (e) => UI.displayOptions(e));
+document.querySelector(".bookshelf-wrapper").addEventListener("mouseout", (e) => UI.hideOptions(e));
 
 // document.querySelector(".bookshelf-wrapper").addEventListener("mouseover", (e) => {
 //     console.log(e.target.children[0]);
