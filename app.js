@@ -114,11 +114,11 @@ class UI {
     }
 
     static updateRemover() {
-        document.querySelectorAll(".libro").forEach(book => book.addEventListener("mouseleave", () => UI.hideOptions()));
+        document.querySelectorAll(".libro").forEach(book => book.addEventListener("mouseleave", (e) => UI.hideOptions(e)));
     }
 
-    static hideOptions() {
-        console.log("Moved out of icons element, active off");
+    static hideOptions(e) {
+        e.target.children[0].classList.remove("active");
     }
 }
 
@@ -208,6 +208,3 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.querySelector(".bookshelf-wrapper").addEventListener("mouseover", (e) => UI.displayOptions(e));
-const bookz = document.querySelectorAll(".libro");
-console.log(bookz);
-//.forEach(book => book.addEventListener("mouseleave", () => UI.hideOptions()));
