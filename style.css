@@ -176,12 +176,6 @@ label{
     transition: 1s;
 }
 
-
-/* .libro:hover{
-    background: url("no");
-    /* background:  rgb(27, 35, 66) !important; */
-
-
 .libro p, h2{
     color: white;
     display: none;
@@ -208,13 +202,39 @@ label{
 
 .iconos svg{
     width: 50px;
-    background-color: violet;
+    background-color: #1b2342;
+    cursor: pointer;
+    color: white;
     border-radius: 50%;
     padding: 1.5px;
+}
+/* 
+.iconos svg:hover{
+    filter: brightness(130%);
+} */
+
+.iconos #deleteBook:hover{
+    color: #1b2342;
+    background-color: #E57A6A;
+}
+
+.iconos #editInfo:hover{
+    color: #1b2342;
+    background-color: #FFB460;
+}
+
+.iconos #moreInfo:hover{
+    color: #1b2342;
+    background-color: #F9F871;
+}
+
+.iconos #moreInfo, #editInfo, #deleteBook{
+    padding: 5px
 }
 
 .iconos #editInfo{
     margin: 15px 0;
+    padding: 5px;
 }
 
 .icon:hover{
