@@ -254,6 +254,7 @@ label{
 .editSection{
     display: none;
     height: 100%;
+    width: 100%;
 }
 
 .editSection.active{

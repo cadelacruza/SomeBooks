@@ -51,9 +51,9 @@ class UI {
         </div>
 
         <form action="#" class="editSection">
-         <input type="text" placeholder="${title}" class="editInput" id="editTitle">
-         <input type="text" placeholder="${author}" class="editInput" id="editAuthor">
-         <input type="number" placeholder=${isbn} class="editInput" id="editIsbn">
+         <input type="text" value="${title}" class="editInput" id="editTitle">
+         <input type="text" value="${author}" class="editInput" id="editAuthor">
+         <input type="number" value=${isbn} class="editInput" id="editIsbn">
          <section class="btn-wrapper">
          <input type="button" value="Save Changes" id="saveChanges">
          </section>
