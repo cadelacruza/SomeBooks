@@ -256,6 +256,7 @@ document.querySelector(".bookshelf-wrapper").addEventListener("click", (e) => {
     } else if (e.target.id === "saveChanges") {
         //console.log("Save the edited changes");
         UI.saveChanges(e);
+        //UI.showAlert("Changes saved", "green");
     }
 
 });

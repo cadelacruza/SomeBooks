@@ -285,10 +285,15 @@ label{
     font-weight: bolder;
     text-align: center;
 }
+
 .editSection.active #saveChanges:hover{
-    filter: brightness(90%);
     cursor: pointer;
 }
+
+.editSection.active #saveChanges:active{
+    filter: brightness(120%);
+}
+
 
 #byMe{
     display: flex;
