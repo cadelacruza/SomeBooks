@@ -48,7 +48,16 @@ class UI {
          <h2>${title}</h2>
          <p>Author: ${author}</p>
          <p>ISBN: ${isbn}</p>
-        <div>
+        </div>
+
+        <form class="editSection">
+         <input type="text" placeholder="${title}" class="editInput" id="editTitle">
+         <input type="text" placeholder="${author}" class="editInput" id="editAuthor">
+         <input type="number" placeholder=${isbn} class="editInput" id="editIsbn">
+         <section class="btn-wrapper">
+          <button id="saveChanges">Save</button>
+         </section>
+        </form>
         `;
 
         parent.style.backgroundImage = `url(${img})`;

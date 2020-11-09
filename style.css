@@ -245,7 +245,7 @@ label{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 170px;
+    height: 100%;
 }
 .data-wrapper.active h2{
     text-align: center;
