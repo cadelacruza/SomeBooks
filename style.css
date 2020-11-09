@@ -178,7 +178,6 @@ label{
 
 .libro p, h2{
     color: white;
-    display: none;
 }
 
 .libro h2{
@@ -239,4 +238,15 @@ label{
 
 .data-wrapper{
     display: none;
+} 
+
+ .data-wrapper.active{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 170px;
+}
+.data-wrapper.active h2{
+    text-align: center;
 }

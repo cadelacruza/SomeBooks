@@ -46,8 +46,8 @@ class UI {
             </div>
         <div class="data-wrapper">
          <h2>${title}</h2>
-         <p>${author}</p>
-         <p>${isbn}</p>
+         <p>Author: ${author}</p>
+         <p>ISBN: ${isbn}</p>
         <div>
         `;
 
@@ -66,6 +66,15 @@ class UI {
             UI.gridOn();
         }
         UI.counter++;
+    }
+
+    static displayBookInfo(e) {
+
+        //console.log(e.target.parentNode);
+        //e.target.parentNode.style.display = "none";
+        //console.log(e.target.parentNode.parentNode.children[1]);
+        // console.log(e.target.parentNode.parentNode);
+        e.target.parentNode.parentNode.children[1].classList.add("active");
     }
 
     static eliminateBook(e) {
@@ -116,11 +125,14 @@ class UI {
             if (e.target.classList.contains("containerB")) {
                 e.target.removeAttribute("style");
             }
-            if (e.target.classList.contains)
-                //     console.log(e.target.style.backgroundImage)
-                // console.log(e.target.children[0]);
-                e.target.children[0].classList.add("active");
-            //console.log("Moved on icons element, active on");
+            e.target.children[0].classList.add("active");
+            console.log(e.target.children[0]);
+            //     if (e.target.classList.contains("libro"))
+            //             console.log(e.target.style.backgroundImage)
+            //         console.log(e.target.children[0]);
+            //         e.target.children[0].classList.add("active");
+            //     console.log("Moved on icons element, active on");
+            // }
         }
     }
 
@@ -131,6 +143,7 @@ class UI {
     static hideOptions(e) {
         console.log(e.target)
         e.target.children[0].classList.remove("active");
+        e.target.children[1].classList.remove("active");
         e.target.style.backgroundImage = `url(${e.target.dataset.imgSrc})`;
     }
 }
@@ -204,6 +217,9 @@ document.querySelector("button").addEventListener("click", (e) => {
 document.querySelector(".bookshelf-wrapper").addEventListener("click", (e) => {
     if (e.target.id === "deleteBook") {
         UI.eliminateBook(e);
+    } else if (e.target.id === "moreInfo") {
+        e.target.parentNode.classList.remove("active");
+        UI.displayBookInfo(e);
     }
 
 });
@@ -217,4 +233,6 @@ document.addEventListener('DOMContentLoaded', function () {
     UI.displaySavedBooks();
 });
 
-document.querySelector(".bookshelf-wrapper").addEventListener("mouseover", (e) => UI.displayOptions(e));
+document.querySelector(".bookshelf-wrapper").addEventListener("mouseover", (e) => {
+    UI.displayOptions(e)
+});
