@@ -259,4 +259,23 @@ label{
 .editSection.active{
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.editSection.active input{
+    width: 80%;
+    background-color: #141936;
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+    color: white;
+}
+
+.editSection.active input::placeholder{
+    color: white;
+}
+
+.editSection.active #saveChanges{
+    padding: 5px 10px;
 }

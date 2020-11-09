@@ -235,7 +235,6 @@ document.querySelector(".bookshelf-wrapper").addEventListener("click", (e) => {
         e.target.parentNode.classList.remove("active");
         UI.displayBookInfo(e);
     } else if (e.target.id === "editInfo") {
-        //console.log("You're clicking the edit section");
         e.target.parentNode.classList.remove("active");
         UI.displayEditSec(e);
     }
