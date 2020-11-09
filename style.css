@@ -246,6 +246,7 @@ label{
     justify-content: space-around;
     align-items: center;
     height: 100%;
+    width: 100%;
 }
 .data-wrapper.active h2{
     text-align: center;
