@@ -77,12 +77,30 @@ class UI {
         UI.counter++;
     }
 
-    static displayBookInfo(e) {
+    static saveChanges(e) {
+        // console.log(e.target.parentNode.parentNode.parentNode.children[0].children[2].dataset.isbn)
+        const newTitle = e.target.parentNode.parentNode.children[0].value;
+        const newAuthor = e.target.parentNode.parentNode.children[1].value;
+        const newIsbn = e.target.parentNode.parentNode.children[2].value;
+        const currentIsbn = e.target.parentNode.parentNode.parentNode.children[0].children[2].dataset.isbn;
+        // console.log(`titulo: ${newTitle}
+        // autor: ${newAuthor}
+        // ISBN: ${newIsbn}`)
 
-        //console.log(e.target.parentNode);
-        //e.target.parentNode.style.display = "none";
-        //console.log(e.target.parentNode.parentNode.children[1]);
-        // console.log(e.target.parentNode.parentNode);
+        //SaveChangesLocalStorage
+        const libros = Store.getBooks();
+        libros.forEach(libro => {
+            if (libro.isbn === currentIsbn) {
+                libro.title = newTitle !== "" ? newTitle : libro.title;
+                libro.author = newAuthor !== "" ? newAuthor : libro.author;
+                libro.isbn = newIsbn !== "" ? newIsbn : libro.isbn;
+            }
+        })
+
+        localStorage.setItem("books", JSON.stringify(libros));
+    }
+
+    static displayBookInfo(e) {
         e.target.parentNode.parentNode.children[1].classList.add("active");
     }
 
@@ -140,12 +158,6 @@ class UI {
             }
             e.target.children[0].classList.add("active");
             console.log(e.target.children[0]);
-            //     if (e.target.classList.contains("libro"))
-            //             console.log(e.target.style.backgroundImage)
-            //         console.log(e.target.children[0]);
-            //         e.target.children[0].classList.add("active");
-            //     console.log("Moved on icons element, active on");
-            // }
         }
     }
 
@@ -229,7 +241,7 @@ document.querySelector("#addBook").addEventListener("click", (e) => {
 
 
 document.querySelector(".bookshelf-wrapper").addEventListener("click", (e) => {
-    console.log(e.target.id)
+    // console.log(e.target.id)
     if (e.target.id === "deleteBook") {
         UI.eliminateBook(e);
     } else if (e.target.id === "moreInfo") {
@@ -239,7 +251,8 @@ document.querySelector(".bookshelf-wrapper").addEventListener("click", (e) => {
         e.target.parentNode.classList.remove("active");
         UI.displayEditSec(e);
     } else if (e.target.id === "saveChanges") {
-        console.log("Save the edited changes");
+        //console.log("Save the edited changes");
+        UI.saveChanges(e);
     }
 
 });
