@@ -78,7 +78,7 @@ class UI {
     }
 
     static saveChanges(e) {
-        // console.log(e.target.parentNode.parentNode.parentNode.children[0].children[2].dataset.isbn)
+        //console.log(e.target.parentNode.parentNode.parentNode.children[1].children[0].textContent)
         const newTitle = e.target.parentNode.parentNode.children[0].value;
         const newAuthor = e.target.parentNode.parentNode.children[1].value;
         const newIsbn = e.target.parentNode.parentNode.children[2].value;
@@ -92,8 +92,11 @@ class UI {
         libros.forEach(libro => {
             if (libro.isbn === currentIsbn) {
                 libro.title = newTitle !== "" ? newTitle : libro.title;
+                e.target.parentNode.parentNode.parentNode.children[1].children[0].textContent = libro.title;
                 libro.author = newAuthor !== "" ? newAuthor : libro.author;
+                e.target.parentNode.parentNode.parentNode.children[1].children[1].textContent = libro.author;
                 libro.isbn = newIsbn !== "" ? newIsbn : libro.isbn;
+                e.target.parentNode.parentNode.parentNode.children[1].children[2].textContent = libro.isbn;
             }
         })
 
