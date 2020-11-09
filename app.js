@@ -69,13 +69,10 @@ class UI {
     }
 
     static eliminateBook(e) {
-        if (e.target.id === "deleteBook") {
-            //console.log(e.target.dataset.isbn);
-            Store.removeBook(e.target.dataset.isbn);
-            e.target.parentNode.parentNode.remove();
-            UI.showAlert("Book deleted", "red");
-            UI.deleteBook();
-        }
+        Store.removeBook(e.target.dataset.isbn);
+        e.target.parentNode.parentNode.remove();
+        UI.showAlert("Book deleted", "red");
+        UI.deleteBook();
     }
 
     static deleteBook() {
@@ -205,7 +202,10 @@ document.querySelector("button").addEventListener("click", (e) => {
 
 
 document.querySelector(".bookshelf-wrapper").addEventListener("click", (e) => {
-    UI.eliminateBook(e);
+    if (e.target.id === "deleteBook") {
+        UI.eliminateBook(e);
+    }
+
 });
 
 document.addEventListener('DOMContentLoaded', function () {

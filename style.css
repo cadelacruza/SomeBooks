@@ -75,8 +75,8 @@ body{
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
-    background-color: #3A57FC;
-    color: white;
+    background-color: #ffefca;
+    color: #141936;
     font-weight: bolder;
 }
 
@@ -208,10 +208,6 @@ label{
     border-radius: 50%;
     padding: 1.5px;
 }
-/* 
-.iconos svg:hover{
-    filter: brightness(130%);
-} */
 
 .iconos #deleteBook:hover{
     color: #1b2342;
@@ -228,8 +224,8 @@ label{
     background-color: #F9F871;
 }
 
-.iconos #moreInfo, #editInfo, #deleteBook{
-    padding: 5px
+#moreInfo, #editInfo, #deleteBook{
+    padding: 5px;
 }
 
 .iconos #editInfo{
