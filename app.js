@@ -86,6 +86,10 @@ class UI {
         e.target.parentNode.parentNode.children[1].classList.add("active");
     }
 
+    static displayEditSec(e) {
+        e.target.parentNode.parentNode.children[2].classList.add("active");
+    }
+
     static eliminateBook(e) {
         Store.removeBook(e.target.dataset.isbn);
         e.target.parentNode.parentNode.remove();
@@ -153,6 +157,7 @@ class UI {
         console.log(e.target)
         e.target.children[0].classList.remove("active");
         e.target.children[1].classList.remove("active");
+        e.target.children[2].classList.remove("active");
         e.target.style.backgroundImage = `url(${e.target.dataset.imgSrc})`;
     }
 }
@@ -229,6 +234,10 @@ document.querySelector(".bookshelf-wrapper").addEventListener("click", (e) => {
     } else if (e.target.id === "moreInfo") {
         e.target.parentNode.classList.remove("active");
         UI.displayBookInfo(e);
+    } else if (e.target.id === "editInfo") {
+        //console.log("You're clicking the edit section");
+        e.target.parentNode.classList.remove("active");
+        UI.displayEditSec(e);
     }
 
 });
