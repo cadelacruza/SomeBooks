@@ -289,3 +289,18 @@ label{
     filter: brightness(90%);
     cursor: pointer;
 }
+
+#byMe{
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin-bottom: 10px;
+}
+
+#byMe a{
+    color: white;
+    text-decoration: none;
+}
+#byMe a:hover{
+    color: #FFB460 ;
+}
