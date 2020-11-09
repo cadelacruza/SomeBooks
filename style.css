@@ -277,5 +277,15 @@ label{
 }
 
 .editSection.active #saveChanges{
-    padding: 5px 10px;
+    padding: 5px 30px 5px 5px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ffefca;
+    color: #141936;
+    font-weight: bolder;
+    text-align: center;
+}
+.editSection.active #saveChanges:hover{
+    filter: brightness(90%);
+    cursor: pointer;
 }

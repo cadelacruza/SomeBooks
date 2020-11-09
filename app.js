@@ -50,12 +50,12 @@ class UI {
          <p>ISBN: ${isbn}</p>
         </div>
 
-        <form class="editSection">
+        <form action="#" class="editSection">
          <input type="text" placeholder="${title}" class="editInput" id="editTitle">
          <input type="text" placeholder="${author}" class="editInput" id="editAuthor">
          <input type="number" placeholder=${isbn} class="editInput" id="editIsbn">
          <section class="btn-wrapper">
-          <button id="saveChanges">Save</button>
+         <input type="button" value="Save Changes" id="saveChanges">
          </section>
         </form>
         `;
@@ -208,7 +208,7 @@ const displayBook = async (libro) => {
 }
 
 //Click button event
-document.querySelector("button").addEventListener("click", (e) => {
+document.querySelector("#addBook").addEventListener("click", (e) => {
     e.preventDefault();
     const titulo = document.querySelector("#titulo").value;
     const autor = document.querySelector("#autor").value;
@@ -229,6 +229,7 @@ document.querySelector("button").addEventListener("click", (e) => {
 
 
 document.querySelector(".bookshelf-wrapper").addEventListener("click", (e) => {
+    console.log(e.target.id)
     if (e.target.id === "deleteBook") {
         UI.eliminateBook(e);
     } else if (e.target.id === "moreInfo") {
@@ -237,6 +238,8 @@ document.querySelector(".bookshelf-wrapper").addEventListener("click", (e) => {
     } else if (e.target.id === "editInfo") {
         e.target.parentNode.classList.remove("active");
         UI.displayEditSec(e);
+    } else if (e.target.id === "saveChanges") {
+        console.log("Save the edited changes");
     }
 
 });
