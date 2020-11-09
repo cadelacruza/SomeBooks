@@ -250,3 +250,12 @@ label{
 .data-wrapper.active h2{
     text-align: center;
 }
+
+.editSection{
+    display: none;
+}
+
+.editSection.active{
+    display: flex;
+    flex-direction: column;
+}
