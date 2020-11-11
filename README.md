@@ -1,4 +1,4 @@
 # SomeBooks
 Book list app made with HTML/CSS/JS
 
-A work in progress
+This website is not responsive, I dont plan on adding more changes
